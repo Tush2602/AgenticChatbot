@@ -21,7 +21,10 @@ def load_langgraph_agneticai_app():
         st.warning("⚠️ Please provide the necessary inputs to proceed.")
         st.stop()
 
-    user_message = st.text_input("Enter your message:")
+    if st.session_state.IsFetchButtonClicked:
+        user_message = st.session_state.timeframe
+    else:
+        user_message = st.text_input("Enter your message:")
 
     if user_message:
         try:
